@@ -39,6 +39,12 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     return []
   })
 
+
+  // Abaixo: - Usando o useRef e o useEffect para monitorar qualquer mudança no Estado, 
+  // dessa maneira conseguimos dar um setItem no LocalStorage toda vez que houver uma mudança.  
+  // Assim não precisamos adicionar a mesma linha de código "localStorage.setItem" ao final
+  // de todas as funções como fiz anteriormente. 
+
   const prevCartRef = useRef<Product[]>()
 
   useEffect(() => {
